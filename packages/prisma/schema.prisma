@@ -7,7 +7,7 @@ datasource db {
 }
 
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
   previewFeatures = ["mongoDb"]
 }
 
@@ -134,7 +134,7 @@ model User {
   identityProvider    IdentityProvider     @default(CAL)
   identityProviderId  String?
   invitedTo           Int?
-  plan                UserPlan             @default(TRIAL)
+  plan                UserPlan             @default(PRO)
   Schedule            Schedule[]
   webhooks            Webhook[]
   brandColor          String               @default("#292929")

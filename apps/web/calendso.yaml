@@ -11,11 +11,11 @@ info:
   version: 1.0.0
   termsOfService: "https://cal.com/terms"
 server:
-  url: "http://localhost:{port}"
+  url: "https://aiko.day:{port}"
   description: Local Development Server
   variables:
     port:
-      default: "3000"
+      default: "443"
 tags:
   - name: Authentication
     description: "Auth routes, powered by Next-Auth.js"

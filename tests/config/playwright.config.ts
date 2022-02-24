@@ -28,13 +28,13 @@ const config: PlaywrightTestConfig = {
   globalSetup: require.resolve("./globalSetup"),
   outputDir,
   webServer: {
-    command: "yarn workspace @calcom/web start -p 3000",
-    port: 3000,
+    command: "yarn workspace @calcom/web start -p 443",
+    port: 443,
     timeout: 60_000,
     reuseExistingServer: !process.env.CI,
   },
   use: {
-    baseURL: "http://localhost:3000",
+    baseURL: "https://aiko.day:443",
     locale: "en-US",
     trace: "retain-on-failure",
     headless: !!process.env.CI || !!process.env.PLAYWRIGHT_HEADLESS,
