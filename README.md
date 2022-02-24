@@ -27,10 +27,12 @@
   <a href="https://github.com/calcom/cal.com/stargazers"><img src="https://img.shields.io/github/stars/calcom/cal.com" alt="Github Stars"></a>
   <a href="https://news.ycombinator.com/item?id=26817795"><img src="https://img.shields.io/badge/Hacker%20News-311-%23FF6600" alt="Hacker News"></a>
   <a href="https://github.com/calcom/cal.com/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-AGPLv3-purple" alt="License"></a>
-  <img src="https://img.shields.io/github/package-json/v/calcom/cal.com">
   <a href="https://github.com/calcom/cal.com/pulse"><img src="https://img.shields.io/github/commit-activity/m/calcom/cal.com" alt="Commits-per-month"></a>
   <a href="https://cal.com/pricing"><img src="https://img.shields.io/badge/Pricing-%2412%2Fmonth-brightgreen" alt="Pricing"></a>
   <a href="https://jitsu.com?utm_source=github/calcom/cal.com"><img src="https://img.shields.io/badge/Metrics_tracked_by-JITSU-AA00FF?logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAACKSURBVHgBrZDRCYAwDEQv6gCOoKO4hOCXI9QVnEZwiY5iF5GaVClaBNtioCSUvCR3tMJaxIfZgW4AGUoEPVwgPZoS0Dmgg3NBVDFNbMIsmYCak3J1jDk9iCQvsKJvkzr71N81Gj6vDT/LU2P6RhY63jcafk3YJEbgeZpiFyc/5HJKv8Ef273NSfABGbQfUZhnOSAAAAAASUVORK5CYII=" alt="Jitsu Tracked"></a>
+    <a href="https://hub.docker.com/r/calendso/calendso"><img src="https://img.shields.io/docker/pulls/calendso/calendso"></a>
+    <a href="https://twitter.com/calcom"><img src="https://img.shields.io/twitter/follow/calcom?style=social"></a>
+    <a href="https://calendso.slack.com/archives/C02BY67GMMW"><img src="https://img.shields.io/badge/translations-contribute-brightgreen" /></a>
 
 </p>
 
@@ -66,7 +68,7 @@ That's where Cal.com comes in. Self-hosted or hosted by us. White-label by desig
 
 Cal officially launched as v.1.0 on 15th of September, however a lot of new features are coming. Watch **releases** of this repository to be notified for future updates:
 
-![cal-star-github](https://user-images.githubusercontent.com/8019099/116010176-5d9c9900-a615-11eb-92d0-aa0e892f7056.gif)
+![cal-star-github](https://user-images.githubusercontent.com/8019099/154853944-a9e3c999-3da3-4048-b149-b4f73893c6fb.gif)
 
 <!-- GETTING STARTED -->
 
@@ -100,10 +102,11 @@ Here is what you need to be able to run Cal.
    cd cal.com
    ```
 
-1. Copy `.env.example` to `.env`
+1. Copy `apps/web/.env.example` to `apps/web/.env`
 
    ```sh
-   cp .env.example .env
+   cp apps/web/.env.example apps/web/.env
+   cp packages/prisma/.env.example packages/prisma/.env
    ```
 
 1. Install packages with yarn
@@ -119,6 +122,14 @@ Here is what you need to be able to run Cal.
 
 ```sh
 yarn dx
+```
+
+#### Development tip
+
+> Add `NEXT_PUBLIC_DEBUG=1` anywhere in your `apps/web/.env` to get logging information for all the queries and mutations driven by **trpc**.
+
+```sh
+echo 'NEXT_PUBLIC_DEBUG=1' >> apps/web/.env
 ```
 
 #### Manual setup
@@ -157,10 +168,10 @@ yarn dx
    </details>
 
 1. Set a 32 character random string in your .env file for the `CALENDSO_ENCRYPTION_KEY` (You can use a command like `openssl rand -base64 24` to generate one).
-1. Set up the database using the Prisma schema (found in `prisma/schema.prisma`)
+1. Set up the database using the Prisma schema (found in `apps/web/prisma/schema.prisma`)
 
    ```sh
-   npx prisma migrate deploy
+   yarn workspace @calcom/prisma db-deploy
    ```
 
 1. Run (in development mode)
@@ -174,12 +185,12 @@ yarn dx
 1. Open [Prisma Studio](https://www.prisma.io/studio) to look at or modify the database content:
 
    ```sh
-   npx prisma studio
+   yarn db-studio
    ```
 
 1. Click on the `User` model to add a new user record.
 1. Fill out the fields `email`, `username`, `password`, and set `metadata` to empty `{}` (remembering to encrypt your password with [BCrypt](https://bcrypt-generator.com/)) and click `Save 1 Record` to create your first user.
-   > New users are set on a `TRIAL` plan by default. You might want to adjust this behavior to your needs in the `prisma/schema.prisma` file.
+   > New users are set on a `TRIAL` plan by default. You might want to adjust this behavior to your needs in the `apps/web/prisma/schema.prisma` file.
 1. Open a browser to [http://localhost:3000](http://localhost:3000) and login with your just created, first user.
 
 ### E2E-Testing
@@ -188,7 +199,10 @@ yarn dx
 # In first terminal
 yarn dx
 # In second terminal
-yarn test-playwright
+yarn workspace @calcom/web test-e2e
+
+# To open last HTML report run:
+yarn workspace @calcom/web playwright-report
 ```
 
 ### Upgrading from earlier versions
@@ -204,7 +218,7 @@ yarn test-playwright
    In a development environment, run:
 
    ```sh
-   npx prisma migrate dev
+   yarn workspace @calcom/prisma db-migrate
    ```
 
    (this can clear your development database in some cases)
@@ -212,7 +226,7 @@ yarn test-playwright
    In a production environment, run:
 
    ```sh
-   npx prisma migrate deploy
+   yarn workspace @calcom/prisma db-deploy
    ```
 
 3. Check the `.env.example` and compare it to your current `.env` file. In case there are any fields not present
@@ -272,14 +286,11 @@ See the [open issues](https://github.com/calcom/cal.com/issues) for a list of pr
 
 ## Contributing
 
-Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+Please see our [contributing guide](/CONTRIBUTING.md).
 
-1. Fork the project
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Make your changes
-4. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-5. Push to the branch (`git push origin feature/AmazingFeature`)
-6. Open a pull request
+### Good First Issues
+
+We have a list of [good first issues](https://github.com/calcom/cal.com/labels/✅%20good%20first%20issue) that contain bugs which have a relatively limited scope. This is a great place to get started, gain experience, and get familiar with our contribution process.
 
 ## Integrations
 
@@ -328,6 +339,7 @@ Contributions are what make the open source community such an amazing place to b
 2. From within your dashboard, go to the [developers](https://dashboard.daily.co/developers) tab.
 3. Copy your API key.
 4. Now paste the API key to your .env file into the `DAILY_API_KEY` field in your .env file.
+5. If you have the [Daily Scale Plan](https://www.daily.co/pricing) set the `DAILY_SCALE_PLAN` variable to `true` in order to use features like video recording.
 
 <!-- LICENSE -->
 
