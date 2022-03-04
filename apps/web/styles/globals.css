@@ -18,6 +18,15 @@
   @apply text-black;
 }
 
+.bg-brand{
+      background-color: #486fff !important;
+}
+.rounded-sm{
+  border-radius: 5px !important;
+}
+h1 strong .h-4{
+  height: 2rem !important;
+}
 /* DateRangePicker */
 .react-daterange-picker > .react-daterange-picker__wrapper {
   /* border consistent with other inputs */
@@ -353,7 +362,11 @@ nav#nav--settings > a.active svg {
 }
 
 body {
-  background-color: #f3f4f6;
+  background-color: #fff;
+  font-family: "Roboto", sans-serif !important;
+}
+.font-cal{
+  font-family: "Roboto", sans-serif !important;
 }
 
 hr {
