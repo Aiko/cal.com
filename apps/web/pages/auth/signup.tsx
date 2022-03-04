@@ -59,7 +59,7 @@ export default function Signup({ email }: Props) {
       .then(handleErrors)
       .then(
         async () =>
-          await signIn("Cal.com", {
+          await signIn("Aiko Day", {
             callbackUrl: (`${BASE_URL}/${router.query.callbackUrl}` || "") as string,
           })
       )
@@ -129,7 +129,7 @@ export default function Signup({ email }: Props) {
                   color="secondary"
                   className="w-5/12 justify-center"
                   onClick={() =>
-                    signIn("Cal.com", {
+                    signIn("Aiko Day", {
                       callbackUrl: (`${BASE_URL}/${router.query.callbackUrl}` || "") as string,
                     })
                   }>

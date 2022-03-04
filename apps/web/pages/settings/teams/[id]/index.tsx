@@ -68,16 +68,16 @@ export function TeamSettingsPage() {
           <div className="block sm:flex md:max-w-5xl">
             <div className="w-full ltr:mr-2 rtl:ml-2 sm:w-9/12">
               {team.membership.role === MembershipRole.OWNER &&
-              team.membership.isMissingSeat &&
-              team.requiresUpgrade ? (
+                team.membership.isMissingSeat &&
+                team.requiresUpgrade ? (
                 <Alert
                   severity="warning"
                   title={t("hidden_team_member_title")}
                   message={
                     <>
                       {t("hidden_team_owner_message")} <UpgradeToFlexibleProModal teamId={team.id} />
-                      {/* <a href={"https://cal.com/upgrade"} className="underline">
-                        {"https://cal.com/upgrade"}
+                      {/* <a href={"https://aiko.day/upgrade"} className="underline">
+                        {"https://aiko.day/upgrade"}
                       </a> */}
                     </>
                   }

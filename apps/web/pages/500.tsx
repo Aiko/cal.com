@@ -6,7 +6,7 @@ export default function Error500() {
   return (
     <div className="flex h-screen">
       <Head>
-        <title>Something unexpected occurred | Cal.com</title>
+        <title>Something unexpected occurred | Aiko Day</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="m-auto text-center">
@@ -18,7 +18,7 @@ export default function Error500() {
           Something went wrong on our end. Get in touch with our support team, and we’ll get it fixed right
           away for you.
         </p>
-        <Button href="https://cal.com/support">Contact support</Button>
+        <Button href="https://aiko.day/support">Contact support</Button>
         <Button color="secondary" href="javascript:history.back()" className="ml-2">
           Go back
         </Button>

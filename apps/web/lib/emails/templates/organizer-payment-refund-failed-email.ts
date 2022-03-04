@@ -25,7 +25,7 @@ export default class OrganizerPaymentRefundFailedEmail extends OrganizerSchedule
     }
 
     return {
-      from: `Cal.com <${this.getMailerOptions().from}>`,
+      from: `Aiko Day <${this.getMailerOptions().from}>`,
       to: toAddresses.join(","),
       subject: `${this.calEvent.organizer.language.translate("refund_failed_subject", {
         eventType: this.calEvent.type,
@@ -47,14 +47,13 @@ export default class OrganizerPaymentRefundFailedEmail extends OrganizerSchedule
     return `
 ${this.calEvent.organizer.language.translate("a_refund_failed")}
 ${this.calEvent.organizer.language.translate("check_with_provider_and_user", {
-  user: this.calEvent.attendees[0].name,
-})}
-${
-  this.calEvent.paymentInfo &&
-  this.calEvent.organizer.language.translate("error_message", {
-    errorMessage: this.calEvent.paymentInfo.reason,
-  })
-}
+      user: this.calEvent.attendees[0].name,
+    })}
+${this.calEvent.paymentInfo &&
+      this.calEvent.organizer.language.translate("error_message", {
+        errorMessage: this.calEvent.paymentInfo.reason,
+      })
+      }
 ${this.getWhat()}
 ${this.getWhen()}
 ${this.getLocation()}
@@ -96,16 +95,16 @@ ${this.getAdditionalNotes()}
                         <tr>
                           <td align="center" style="font-size:0px;padding:10px 25px;padding-top:24px;padding-bottom:0px;word-break:break-word;">
                             <div style="font-family:Roboto, Helvetica, sans-serif;font-size:24px;font-weight:700;line-height:24px;text-align:center;color:#292929;">${this.calEvent.organizer.language.translate(
-                              "a_refund_failed"
-                            )}</div>
+      "a_refund_failed"
+    )}</div>
                           </td>
                         </tr>
                         <tr>
                           <td align="center" style="font-size:0px;padding:10px 25px;word-break:break-word;">
                             <div style="font-family:Roboto, Helvetica, sans-serif;font-size:16px;font-weight:400;line-height:24px;text-align:center;color:#494949;">${this.calEvent.organizer.language.translate(
-                              "check_with_provider_and_user",
-                              { user: this.calEvent.attendees[0].name }
-                            )}</div>
+      "check_with_provider_and_user",
+      { user: this.calEvent.attendees[0].name }
+    )}</div>
                           </td>
                         </tr>
                         ${this.getRefundInformation()}
@@ -179,9 +178,9 @@ ${this.getAdditionalNotes()}
         <tr>
           <td align="center" style="font-size:0px;padding:10px 25px;word-break:break-word;">
             <div style="font-family:Roboto, Helvetica, sans-serif;font-size:16px;font-weight:400;line-height:24px;text-align:center;color:#494949;">${this.calEvent.organizer.language.translate(
-              "error_message",
-              { errorMessage: paymentInfo.reason }
-            )}</div>
+          "error_message",
+          { errorMessage: paymentInfo.reason }
+        )}</div>
           </td>
         </tr>
         `;

@@ -19,7 +19,7 @@ const usernameSlug = (username: string) => slugify(username) + "-" + randomStrin
 const providers: Provider[] = [
   CredentialsProvider({
     id: "credentials",
-    name: "Cal.com",
+    name: "Aiko Day",
     type: "credentials",
     credentials: {
       email: { label: "Email Address", type: "email", placeholder: "john.doe@example.com" },

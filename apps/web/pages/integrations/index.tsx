@@ -586,7 +586,7 @@ function Web3Container() {
               <div className="flex-grow truncate pl-2">
                 <ListItemTitle component="h3">
                   MetaMask (
-                  <a className="text-blue-500" target="_blank" href="https://cal.com/web3" rel="noreferrer">
+                  <a className="text-blue-500" target="_blank" href="https://aiko.day/web3" rel="noreferrer">
                     Read more
                   </a>
                   )

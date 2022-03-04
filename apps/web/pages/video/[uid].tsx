@@ -101,26 +101,26 @@ export default function JoinCall(props: JoinCallPageProps) {
   return (
     <>
       <Head>
-        <title>Cal.com Video</title>
-        <meta name="title" content="Cal.com Video" />
+        <title>Aiko Day Video</title>
+        <meta name="title" content="Aiko Day Video" />
         <meta name="description" content={t("quick_video_meeting")} />
-        <meta property="og:image" content="https://cal.com/video-og-image.png" />
+        <meta property="og:image" content="https://aiko.day/video-og-image.png" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://cal.com/video" />
-        <meta property="og:title" content="Cal.com Video" />
+        <meta property="og:url" content="https://aiko.day/video" />
+        <meta property="og:title" content="Aiko Day Video" />
         <meta property="og:description" content={t("quick_video_meeting")} />
-        <meta property="twitter:image" content="https://cal.com/video-og-image.png" />
+        <meta property="twitter:image" content="https://aiko.day/video-og-image.png" />
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://cal.com/video" />
-        <meta property="twitter:title" content="Cal.com Video" />
+        <meta property="twitter:url" content="https://aiko.day/video" />
+        <meta property="twitter:title" content="Aiko Day Video" />
         <meta property="twitter:description" content={t("quick_video_meeting")} />
       </Head>
       <div style={{ zIndex: 2, position: "relative" }}>
         <Link href="/">
           <img
             className="h-5·w-auto fixed z-10 hidden sm:inline-block"
-            src="https://cal.com/logo-white.svg"
-            alt="Cal.com Logo"
+            src="https://aiko.day/logo-white.svg"
+            alt="Aiko Day Logo"
             style={{
               top: 46,
               left: 24,

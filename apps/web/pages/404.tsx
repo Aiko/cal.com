@@ -22,24 +22,24 @@ export default function Custom404() {
       title: t("documentation"),
       description: t("documentation_description"),
       icon: DocumentTextIcon,
-      href: "https://docs.cal.com",
+      href: "https://helloaiko.com",
     },
     {
       title: t("blog"),
       description: t("blog_description"),
       icon: BookOpenIcon,
-      href: "https://cal.com/blog",
+      href: "https://helloaiko.com/blog",
     },
   ];
 
-  const [url, setUrl] = useState("https://cal.com/signup?username=");
+  const [url, setUrl] = useState("https://aiko.day/signup?username=");
   useEffect(() => {
-    setUrl(`https://cal.com/signup?username=${username.replace("/", "")}`);
+    setUrl(`https://aiko.day/signup?username=${username.replace("/", "")}`);
   }, [router.query]);
 
   const isSubpage = router.asPath.includes("/", 2);
   const isSignup = router.asPath.includes("/signup");
-  const isCalcom = process.env.NEXT_PUBLIC_BASE_URL === "https://app.cal.com";
+  const isCalcom = process.env.NEXT_PUBLIC_BASE_URL === "https://aiko.day";
 
   return (
     <>
@@ -53,7 +53,7 @@ export default function Custom404() {
       />
       <div className="min-h-screen bg-white px-4">
         <main className="mx-auto max-w-xl pt-16 pb-6 sm:pt-24">
-          {isSignup && process.env.NEXT_PUBLIC_BASE_URL !== "https://app.cal.com" ? (
+          {isSignup && process.env.NEXT_PUBLIC_BASE_URL !== "https://aiko.day" ? (
             <div>
               <div>
                 <p className="text-sm font-semibold uppercase tracking-wide text-black">
@@ -71,7 +71,7 @@ export default function Custom404() {
                 <ul role="list" className="mt-4">
                   <li className="border-2 border-green-500 px-4 py-2">
                     <a
-                      href="https://cal.com/pricing?infra"
+                      href="https://aiko.day/pricing?infra"
                       className="relative flex items-start space-x-4 py-6 rtl:space-x-reverse">
                       <div className="flex-shrink-0">
                         <span className="flex h-12 w-12 items-center justify-center rounded-lg bg-green-50">
@@ -98,7 +98,7 @@ export default function Custom404() {
 
                 <ul role="list" className="divide-y divide-gray-200 border-gray-200">
                   <li className="px-4 py-2">
-                    <Link href="https://docs.cal.com/self-hosting/install#setting-up-your-first-user">
+                    <Link href="https://helloaiko.com">
                       <a className="relative flex items-start space-x-4 py-6 rtl:space-x-reverse">
                         <div className="flex-shrink-0">
                           <span className="flex h-12 w-12 items-center justify-center rounded-lg bg-gray-50">
@@ -186,7 +186,7 @@ export default function Custom404() {
                 ) : isCalcom ? (
                   <Link href={url}>
                     <a className="mt-2 inline-block text-lg">
-                      {t("the_username")} <strong className="text-blue-500">cal.com{username}</strong>{" "}
+                      {t("the_username")} <strong className="text-blue-500">aiko.day{username}</strong>{" "}
                       {t("is_still_available")} <span className="text-blue-500">{t("register_now")}</span>.
                     </a>
                   </Link>

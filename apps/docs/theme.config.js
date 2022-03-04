@@ -1,10 +1,10 @@
 export default {
   github: 'https://github.com/calcom/docs',
   docsRepositoryBase: 'https://github.com/calcom/docs/blob/master',
-  titleSuffix: ' | Cal.com',
+  titleSuffix: ' | Aiko Day',
   logo: (
     <h4 className="m-0">
-      Cal.com
+      Aiko Day
     </h4>
   ),
   head: (

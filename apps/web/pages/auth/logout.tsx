@@ -18,7 +18,7 @@ export default function Logout(props: Props) {
   const router = useRouter();
   useEffect(() => {
     if (props.query?.survey === "true") {
-      router.push("https://cal.com/cancellation");
+      router.push("https://aiko.day/cancellation");
     }
   }, []);
   const { t } = useLocale();

@@ -169,10 +169,9 @@ export default function Success(props: inferSSRProps<typeof getServerSideProps>)
                             `https://calendar.google.com/calendar/r/eventedit?dates=${date
                               .utc()
                               .format("YYYYMMDDTHHmmss[Z]")}/${date
-                              .add(props.eventType.length, "minute")
-                              .utc()
-                              .format("YYYYMMDDTHHmmss[Z]")}&text=${eventName}&details=${
-                              props.eventType.description
+                                .add(props.eventType.length, "minute")
+                                .utc()
+                                .format("YYYYMMDDTHHmmss[Z]")}&text=${eventName}&details=${props.eventType.description
                             }` +
                             (typeof location === "string" ? "&location=" + encodeURIComponent(location) : "")
                           }>
@@ -191,13 +190,13 @@ export default function Success(props: inferSSRProps<typeof getServerSideProps>)
                           href={
                             encodeURI(
                               "https://outlook.live.com/calendar/0/deeplink/compose?body=" +
-                                props.eventType.description +
-                                "&enddt=" +
-                                date.add(props.eventType.length, "minute").utc().format() +
-                                "&path=%2Fcalendar%2Faction%2Fcompose&rru=addevent&startdt=" +
-                                date.utc().format() +
-                                "&subject=" +
-                                eventName
+                              props.eventType.description +
+                              "&enddt=" +
+                              date.add(props.eventType.length, "minute").utc().format() +
+                              "&path=%2Fcalendar%2Faction%2Fcompose&rru=addevent&startdt=" +
+                              date.utc().format() +
+                              "&subject=" +
+                              eventName
                             ) + (location ? "&location=" + location : "")
                           }>
                           <a
@@ -217,13 +216,13 @@ export default function Success(props: inferSSRProps<typeof getServerSideProps>)
                           href={
                             encodeURI(
                               "https://outlook.office.com/calendar/0/deeplink/compose?body=" +
-                                props.eventType.description +
-                                "&enddt=" +
-                                date.add(props.eventType.length, "minute").utc().format() +
-                                "&path=%2Fcalendar%2Faction%2Fcompose&rru=addevent&startdt=" +
-                                date.utc().format() +
-                                "&subject=" +
-                                eventName
+                              props.eventType.description +
+                              "&enddt=" +
+                              date.add(props.eventType.length, "minute").utc().format() +
+                              "&path=%2Fcalendar%2Faction%2Fcompose&rru=addevent&startdt=" +
+                              date.utc().format() +
+                              "&subject=" +
+                              eventName
                             ) + (location ? "&location=" + location : "")
                           }>
                           <a
@@ -259,12 +258,12 @@ export default function Success(props: inferSSRProps<typeof getServerSideProps>)
                   )}
                   {!props.hideBranding && (
                     <div className="pt-4 text-center text-xs text-gray-400 dark:border-gray-900 dark:text-white">
-                      <a href="https://cal.com/signup">{t("create_booking_link_with_calcom")}</a>
+                      <a href="https://aiko.day/signup">{t("create_booking_link_with_calcom")}</a>
 
                       <form
                         onSubmit={(e) => {
                           e.preventDefault();
-                          router.push(`https://cal.com/signup?email=` + (e as any).target.email.value);
+                          router.push(`https://aiko.day/signup?email=` + (e as any).target.email.value);
                         }}
                         className="mt-4 flex">
                         <EmailInput
@@ -272,7 +271,7 @@ export default function Success(props: inferSSRProps<typeof getServerSideProps>)
                           id="email"
                           defaultValue={router.query.email}
                           className="focus:border-brand mt-0 block w-full rounded-sm border-gray-300 shadow-sm focus:ring-black dark:border-gray-900 dark:bg-black dark:text-white sm:text-sm"
-                          placeholder="rick.astley@cal.com"
+                          placeholder="mr.seal@aiko.day"
                         />
                         <Button size="lg" type="submit" className="min-w-max" color="primary">
                           {t("try_for_free")}

@@ -32,7 +32,7 @@ export default class OrganizerRequestReminderEmail extends OrganizerScheduledEma
     }
 
     return {
-      from: `Cal.com <${this.getMailerOptions().from}>`,
+      from: `Aiko Day <${this.getMailerOptions().from}>`,
       to: toAddresses.join(","),
       subject: `${this.calEvent.organizer.language.translate("event_awaiting_approval_subject", {
         eventType: this.calEvent.type,
@@ -84,9 +84,9 @@ ${process.env.BASE_URL} + "/bookings/upcoming"
       <div style="background-color:#F5F5F5;">
         ${emailSchedulingBodyHeader("calendarCircle")}
         ${emailScheduledBodyHeaderContent(
-          this.calEvent.organizer.language.translate("event_still_awaiting_approval"),
-          this.calEvent.organizer.language.translate("someone_requested_an_event")
-        )}
+      this.calEvent.organizer.language.translate("event_still_awaiting_approval"),
+      this.calEvent.organizer.language.translate("someone_requested_an_event")
+    )}
         ${emailSchedulingBodyDivider()}
         <!--[if mso | IE]></td></tr></table><table align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:600px;" width="600" bgcolor="#FFFFFF" ><tr><td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
         <div style="background:#FFFFFF;background-color:#FFFFFF;margin:0px auto;max-width:600px;">
