@@ -353,7 +353,9 @@ h1 strong .h-4 {
     height: 0%;
   }
 }
-
+.text-gray-500{
+  color: #fff !important;
+}
 nav#nav--settings>a {
   @apply flex items-center border-l-4 border-transparent px-3 py-2 text-sm font-medium text-gray-900 hover:bg-gray-50 hover:text-gray-900;
 }
